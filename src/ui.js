@@ -5,6 +5,7 @@ class UI {
     this.bodyInput = document.querySelector('#body');
     this.idInput = document.querySelector('#id');
     this.postSubmit = document.querySelector('#post-submit');
+    this.postsContainer = document.querySelector('.postsContainer');
     this.forState = 'add';
   }
   showPosts(posts) {
@@ -43,19 +44,13 @@ class UI {
     // Add text
     div.appendChild(document.createTextNode(message));
 
-    // Get the parent
-    const container = document.querySelector('.postsContainer');
-
-    // Get posts
-    const posts = document.querySelector('#posts');
-
     // Insert alert div
-    container.insertBefore(div, posts);
+    this.postsContainer.insertBefore(div, this.post);
 
     // Timeout
     setTimeout(() => {
       this.clearAlert();
-    }, 3000);
+    }, 2000);
   }
 
   clearAlert() {
